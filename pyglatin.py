@@ -27,12 +27,25 @@ then add "elif: word.startswith(blends)" to the end of the blends section
 print "Welcome to the Pig Latin Translator! \n"
 
 pyg = "ay"
+dash = "-"
 original = raw_input("Enter a word: ")
 
 if len(original) > 0 and original.isalpha():
 	word = original.lower()
+	
+	if word[0:3] == "scr"\
+		or word[0:3] == "str"\
+		or word[0:3] == "spr"\
+		or word[0:3] == "spl"\
+		or word[0:3] == "shr"\
+		or word[0:3] == "squ"\
+		or word[0:3] == "thr":
+		first = word[0:3]
+		new_word = word + dash + first + pyg
+		new_word = new_word[3:]
 
-	if word[0:2] == "bl" or word[0:2] == "br"\
+	elif word[0:2] == "bl"\
+		or word[0:2] == "br"\
 		or word[0:2] == "bw"\
 		or word[0:2] == "ch"\
 		or word[0:2] == "cl"\
@@ -62,12 +75,9 @@ if len(original) > 0 and original.isalpha():
 		or word[0:2] == "kw"\
 		or word[0:2] == "lh"\
 		or word[0:2] == "mn"\
-		or word[0:2] == "pf"\
 		or word[0:2] == "ph"\
 		or word[0:2] == "pl"\
-		or word[0:2] == "pn"\
 		or word[0:2] == "pr"\
-		or word[0:2] == "ps"\
 		or word[0:2] == "qu"\
 		or word[0:2] == "rh"\
 		or word[0:2] == "sc"\
@@ -92,16 +102,23 @@ if len(original) > 0 and original.isalpha():
 		or word[0:2] == "zh"\
 		or word[0:2] == "zw":
 		first = word[0:2]
-		new_word = word + first + pyg
+		new_word = word + dash + first + pyg
+		new_word = new_word[2:]
+	
+	elif word[0:2] == "pf"\
+		or word[0:2] == "pn"\
+		or word[0:2] == "ps":
+		first = word[1]
+		new_word = word + dash + first + pyg
 		new_word = new_word[2:]
 	
 	elif word[0] in "aeiou":
-		new_word = word + pyg
+		new_word = word + dash + pyg
 		new_word = new_word[0:]
 	
 	else:
 		first = word[0]
-		new_word = word + first + pyg
+		new_word = word + dash + first + pyg
 		new_word = new_word[1:]
 
 	print "\n"
