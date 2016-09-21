@@ -33,7 +33,8 @@ original = raw_input("Enter a word: ")
 if len(original) > 0 and original.isalpha():
 	word = original.lower()
 	
-	if word[0:3] == "scr"\
+	if word[0:3] == "chr"\
+		or word[0:3] == "scr"\
 		or word[0:3] == "str"\
 		or word[0:3] == "spr"\
 		or word[0:3] == "spl"\
