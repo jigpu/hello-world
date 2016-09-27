@@ -1,0 +1,23 @@
+''' JAPAN TRIP CALCULATOR '''
+
+# Need to define costs per day for food, hotels (maybe with a fanciness scale?), 
+# plane ride (maybe with a time of year calculator?), trains, spending money
+
+################################################################################
+# First, caluclate the yen total of each meal.
+
+def breakfast(days):
+    days = days - 1
+    return 750 * days
+    
+def lunch(days):
+    return 1500 * days
+
+def dinner(days):
+    return 2000 * days    
+
+# Then return the total value of all meals for the trip. #
+def food(days):
+    return breakfast(days) + lunch(days) + dinner(days)
+
+print food(2)
