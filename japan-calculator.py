@@ -1,51 +1,35 @@
-''' JAPAN TRIP CALCULATOR '''
 
-# Need to define costs per day for food, hotels (maybe with a fanciness scale?), 
-# plane ride (maybe with a time of year calculator?), trains, spending money
+''' Breakfast subtracts one meal, since flights from the US don't arrive in the morning.'''
+''' Dinners subtracts one meal, since flights to the US leave before dinner.'''
 
-################################################################################
-# First, caluclate the total (in yen) of each meal. Note that breakfast
-# substracts one day because flights from the States don't land in Japan in the
-# morning.
+def meals():
+    breakfast = (750 * days) - 750 
+    breakfast = breakfast - 750
+    lunch = 1500 * days
+    dinner = 2000 * days
+    dinner = dinner - 2000
+    meal_cost = breakfast + lunch + dinner
+    return meal_cost
 
-def breakfast(days):
-    days = days - 1
-    return 750 * days
-    
-def lunch(days):
-    return 1500 * days
-
-def dinner(days):
-    return 2000 * days    
-
-# Then return the total value of all meals for the trip. #
-def food(days):
-    return breakfast(days) + lunch(days) + dinner(days)
-
-################################################################################
-# Next, calculate the total (in yen) of the hotel stay.
-
-def trip_length(days):
-	days = days * 1
-	return days
-	
-def accomodation(ac_type):
-	if ac_type == "hostel":
-		return 3500
-	elif ac_type == "guest-house":
-		return 4500
-	elif ac_type == "hotel":
-		return 7500
+def accomodation(acc_var):
+	if acc_var == "1":
+		return 8500 * days
+	elif acc_var == "2":
+		return 4500 * days
+	elif acc_var == "3": 
+		return 3000 * days
 	else:
-		return "Sorry, try again"
-		
-def trip_cost(ac_type, days):
-	return accomodation(ac_type) * trip_length(days)
+		print ("\nSorry, I wasn't clear. If you want to stay in a hotel, press 1; if you want to stay in a guest house, press 2; and if you want to stay in a hostel, press 3.")
+		acc_error()
 
-################################################################################
-# Print the food cost and the accomodation cost side by side.
+def acc_error():
+	acc_var = raw_input("\nSo, then, what kind of place do you want to stay?")
+	accomodation(acc_var)
 
-print food(2)
-print trip_cost("guest-house", 2)
-print "\nTOTAL"
-print food(2) + trip_cost("guest-house", 2)
+days = int(raw_input("How many days do you want to stay in Japan?"))
+print "\nOkay, %s days! Let's see..." % (days)
+print "\nThat'll be about %s yen in meals..." % (meals())
+acc_var = raw_input("\nWhat kind of place do you want to stay? A hotel (1), a guest house (2), or a hostel (3)?")
+print "\nSo you'll spend about %s on accommodations..." % (accomodation(acc_var))
+
+
